@@ -35,11 +35,11 @@ _Link to URL where data is from, and download the data into the project repo in 
 ### Data Sources
 - [Social Influence on Shopping](https://data.world/ahalps/social-influence-on-shopping)
 
-  The data in this data source was collected via . There are --- rows and -- columns of data. We can answer questions such as;
+  The data in this data source was collected via survey on the social media platform "Whatsgoodly" . There are 1450 rows and 6 columns of data. We can answer questions such as; which social media platforms are most effective in certain demographics such as age, location, gender, sexuality, religion, race, and political standing.
 
 - [Online Influencer Marketing](https://data.world/ahalps/online-influencer-marketing)
 
-  The data in this data source was collected via . There are --- rows and -- columns of data. We can answer questions such as;
+  The data in this data source was collected via survey on the social media platform "Whatsgoodly". There are 5460 rows and 6 columns of data. We can answer questions such as; how well influencers are able market products based on an array of demographics, which social media platforms are most effective in certain demographics and what emotional response is elicited by social media marketing.
 
 - []
 
