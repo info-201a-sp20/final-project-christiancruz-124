@@ -9,7 +9,7 @@ get_table <- function(ds) {
     group_by(Segment.Description) %>%
     filter(Segment.Type == "Gender") %>%
     select(Segment.Description, Answer, real_perc, Count) %>%
-    kable(col.names = c("Gender", "Social Media",
-                        "Percentage", "Count"))
+    kable(col.names = c("Gender", "Platform w/ Most Shopping Influence",
+                        "Percentage of Gender", "Voter Count"))
   
 }
