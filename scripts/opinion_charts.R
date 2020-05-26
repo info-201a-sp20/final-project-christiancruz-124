@@ -2,7 +2,7 @@
 library(tidyverse)
 
 # loading data
-data <- read.csv("../data/Whatsgoodly - Thought Catalog Influencers.csv",
+data <- read.csv("data/Whatsgoodly - Thought Catalog Influencers.csv",
   stringsAsFactors = FALSE
 )
 
@@ -43,7 +43,7 @@ by_major <- opinion_df %>%
 # =============================== charts ======================================
 
 # pie chart of overall opinion
-chart_all <- ggplot(data = overall_opinion, aes(x = "", y = Count, fill = Opinion)) +
+opinion_all <- ggplot(data = overall_opinion, aes(x = "", y = Count, fill = Opinion)) +
   geom_bar(width = 1, stat = "identity") +
   geom_text(
     label = paste0(pull(overall_opinion, Percentage) * 100, "%"),

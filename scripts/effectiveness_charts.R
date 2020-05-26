@@ -1,7 +1,7 @@
 # ================================ setup ======================================
 library(tidyverse)
 
-data = read.csv("../data/Whatsgoodly - Thought Catalog Influencers.csv", stringsAsFactors = FALSE)
+data = read.csv("data/Whatsgoodly - Thought Catalog Influencers.csv", stringsAsFactors = FALSE)
 
 platform_df <- data %>% 
   filter(grepl("social platform", Question))
@@ -14,7 +14,7 @@ global_results <- platform_df %>%
 # =============================== charts ======================================
 
 # pie chart of global results
-ggplot(data = global_results, aes(x = "", y = Count, fill = Answer)) +
+platform_all <- ggplot(data = global_results, aes(x = "", y = Count, fill = Answer)) +
   geom_bar(width = 1, stat = "identity") +
   geom_text(label = paste0(pull(global_results, Percentage) * 100, "%"),
             position = position_stack(vjust = 0.5)
@@ -28,3 +28,4 @@ ggplot(data = global_results, aes(x = "", y = Count, fill = Answer)) +
     axis.ticks = element_blank(),
     panel.grid = element_blank()
   )
+
