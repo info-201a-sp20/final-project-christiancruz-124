@@ -10,5 +10,4 @@ get_summary_info <- function(dataset) {
     sum()
   ret$type_of_participant <- unique(dataset$Segment.Type)
   return (ret)
-} 
-
+}
