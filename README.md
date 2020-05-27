@@ -39,3 +39,9 @@ We are interested in the field of social media because we know our data on socia
   The data in this data source was collected via survey on the social media platform "Whatsgoodly". There are 5460 rows and 6 columns of data. We can answer questions such as; how well influencers are able market products based on an array of demographics, which social media platforms are most effective in certain demographics and what emotional response is elicited by social media marketing.
 
   Datasets can be found in the data folder in the repo
+  
+## Our team
+
+- Mai
+- Cullen
+- Christian
