@@ -8,7 +8,7 @@ platform_df <- data %>%
 
 # ==================== gathering relevant data for charts =====================
 global_results <- platform_df %>% 
-  filter(Segment.Description == "Global results")
+  filter(Segment.Description == "Global results", )
 
 
 # =============================== charts ======================================
@@ -21,6 +21,10 @@ platform_all <- ggplot(data = global_results, aes(x = "", y = Count, fill = Answ
   ) +
   coord_polar("y", start = 0) +
   scale_fill_brewer(palette = "Set1") +
+  labs(
+    title = "Global results of platform use",
+    subtitle = global_results$Question
+  ) +
   theme(
     axis.title.x = element_blank(),
     axis.title.y = element_blank(),

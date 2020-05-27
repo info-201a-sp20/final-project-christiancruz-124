@@ -58,14 +58,5 @@ opinion_all <- ggplot(data = overall_opinion, aes(x = "", y = Count, fill = Opin
     axis.text = element_blank(),
     axis.ticks = element_blank(),
     panel.grid = element_blank()
-  )
-
-# stacked bar plot of opion count by class
-chart_econ <- ggplot(data = by_econ, aes(x = Class, Count, fill = Opinion)) +
-  geom_col() +
-  geom_text(
-    label = paste0(pull(by_econ, Percentage) * 100, "%"),
-    size = 3,
-    position = position_stack(vjust = .5)
   ) +
-  scale_fill_brewer(palette = "Set1")
+  ggtitle("Overall opinion of social media marketing")
