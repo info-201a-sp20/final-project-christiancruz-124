@@ -9,6 +9,7 @@ source("scripts/summary_info.R")
 source("scripts/table.R")
 source("scripts/opinion_charts.R")
 source("scripts/effectiveness_charts.R")
+source("scripts/opinion_by_econ.R")
 
 library("knitr")
 ```
@@ -16,7 +17,7 @@ In an effort to understand the effects social media has on users, we have decide
 
 ## Data Summary 
 ``` {r summary info, echo = FALSE}
-info <-get_summary_info(ds)
+info <- get_summary_info(ds)
 info_influencer <- get_summary_info(data)
 ```
 The first dataset we used included `r info$length` different columns that addressed different pieces of information about each individual surveyed. There were a total of `r info$total_participant` of people who responded to the survey. The survey asked the following question: `r info$type_of_questions` Respondents had the following answers: `r info$type_of_answer`. The survey also categorized users into different demographics such as `r info$type_of_participant`, and other groupings allowing us to extrapolate different trends based on these demographics. 
@@ -32,9 +33,33 @@ Based on the table below, many interesting data points are revealed. In female v
 get_table(ds)
 ```
 
-``` {r opinion charts, echo = FALSE}
+## Opinions on Social Media Marketing
 
+As mentioned above, one of the questions asked in the Whatsgoodly surveys was "What do you think when an influencer is obviously selling a product?". We categorized the answers so that their responses were categorized as positive, negative, or neutral. This allowed us to make observations on how different demographics felt about social media marketing.
+
+We started by looking at the overall opinion of social media marketing. Below is a pie chart that shows this distribution according to the surveys.
+
+``` {r all opinion, echo = FALSE}
 opinion_all
-chart_econ
-
 ```
+
+We thought that a pie chart was an effective way of visualizing the distribution because we found that there was a distinct enough difference in count between the three groups. This was assisted by the easily readable percentages within the sections. As seen in the chart, most people that took the survey had a negative or neutral opinion on social media marketing, with almost half of the survey takers having a negative reaction to ads.
+
+We took a deeper dive into the question and looked at how different economic classes felt about social media marketing.
+
+``` {r econ opinion, echo = FALSE}
+chart_econ
+```
+
+We thought that a stacked bar chart was an effective way of visualizing the opinion counts because there was an easy way to show the amount of people in each category. Although there were significantly differing amounts of respondents in each category, the percentages in each economic class stay roughly the same. They are also very similar to the overal percentages shown in the previous pie chart.
+
+## Effectiveness
+
+To effectively understand how social media marketing affects user interaction, we knew we had to figure out which platforms had the most effective ads. The pie chart below shows the distribution of answers to the Whatsgoodly survey question on which platform has influenced their online shopping. 
+
+``` {r all platform, echo = FALSE}
+platform_all
+```
+
+Since there was only one variable to account for, we thought that a pie chart was effective at showing the percentages. We chose to keep the "None" category in the bar chart because this section represents the users that are not influenced by social media marketing. 40% of respondents responded with "None", indicating that there was a significant amount of people who weren't affected by the ads. Of those who were influenced by social media ads, Instagram users were the most affected with 31% and Facebook in second with 20.4%. Note that Instagram is owned by Facebook, which might be the reason why they account for the greatest influence in this survey.
+
