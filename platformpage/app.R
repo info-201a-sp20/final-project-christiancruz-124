@@ -84,11 +84,6 @@ ui <- fluidPage(
   plotOutput(outputId = "plot")
 )
 
-to_plot <- by_demo %>%
-  filter(type == "Major") %>%
-  select(-type) %>%
-  gather(key = platform, value = total, -demographic)
-
 server <- function(input, output) {
   output$plot <- renderPlot({
     to_plot <- by_demo %>%
@@ -104,7 +99,7 @@ server <- function(input, output) {
         fill = platform
       )
     ) +
-      geom_col() +
+      geom_col(position = "dodge") +
       scale_fill_brewer(palette = "Set1")
 
     p
