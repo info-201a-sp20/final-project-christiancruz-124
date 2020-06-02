@@ -7,7 +7,7 @@ platform_df <- data %>%
   filter(grepl("social platform", Question))
 
 # ==================== gathering relevant data for charts =====================
-global_results <- platform_df %>% 
+global_results <- platform_df %>%
   filter(Segment.Description == "Global results", )
 
 

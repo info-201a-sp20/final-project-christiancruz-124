@@ -2,7 +2,7 @@ library("dplyr")
 library("knitr")
 
 ds <- read.csv("data/WhatsgoodlyData-6.csv", stringsAsFactors = FALSE)
-
+View(ds)
 get_table <- function(ds) {
   ds %>%
     mutate(real_perc = paste0(Percentage * 100, "%")) %>%
