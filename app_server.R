@@ -6,6 +6,8 @@ library(dplyr)
 source("maps/app_server.R")
 
 server <- function(input, output) {
+  
+  # leaflet for opinion by location
   output$map <- renderLeaflet({
     
     final_data <- cleanup_data %>%
@@ -30,5 +32,26 @@ server <- function(input, output) {
         color = "blue")
     
     return(m)
+  })
+  
+  # col chart on platform influence by demographic
+  output$plot <- renderPlot({
+    to_plot <- by_demo %>%
+      filter(type == input$feature) %>%
+      select(-type) %>%
+      gather(key = platform, value = total, -demographic)
+    
+    p <- ggplot(
+      data = to_plot,
+      mapping = aes(
+        x = demographic,
+        y = total,
+        fill = platform
+      )
+    ) +
+      geom_col(position = "dodge") +
+      scale_fill_brewer(palette = "Set1")
+    
+    p
   })
 }
