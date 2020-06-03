@@ -3,7 +3,7 @@ library(shiny)
 
 ### Loading Data Into File ###
 
-data = read.csv("../data/Whatsgoodly - Thought Catalog Influencers.csv",
+data = read.csv("data/Whatsgoodly - Thought Catalog Influencers.csv",
                 stringsAsFactors = FALSE)
 
 ### Creating Variable for Widget Control ###
@@ -40,19 +40,18 @@ map_page <- tabPanel(
 overview <- tabPanel(
   "Overview",
   titlePanel("Overview"),
-  sidebarLayout(
-    sidebarPanel(
+  splitLayout(
+    verticalLayout(
       h4("Purpose"),
       p(),
       hr(),
       h4("Data Sources"),
-      p()
-      
-    ),
-    mainPanel(
-      img("", src = "https://images.unsplash.com/photo-1567020250037-17e5372676d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2734&q=80",
-          height = 700, width = 600)
-    )
+      p()),
+    
+    
+    img("", src = "https://images.unsplash.com/photo-1567020250037-17e5372676d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2734&q=80",
+        height = 700, width = 600)
+    
   )
 )
 
@@ -62,9 +61,4 @@ conclusion <- tabPanel(
   titlePanel("Conclusions")
   
 )
-ui <- navbarPage(
-  "Social Media and Online Shopping Trends",
-  overview,
-  map_page,
-  conclusion
-)
+
