@@ -1,5 +1,6 @@
 library(dplyr)
 library(shiny)
+library(leaflet)
 
 ### Loading Data Into File ###
 
@@ -40,17 +41,28 @@ map_page <- tabPanel(
 overview <- tabPanel(
   "Overview",
   titlePanel("Overview"),
-  splitLayout(
-    verticalLayout(
+  sidebarLayout(
+    sidebarPanel(
       h4("Purpose"),
-      p(),
       hr(),
+      p("In an effort to understand the effects social media has on users, we have
+        decided to explore social media and how marketing affects spending on
+        popular social media sites as well as it's over all reception by users. The
+        importance in such analysis lies in the ability to have a better understanding
+        of the strategies used to influence shoppers, understand the feelings of users,
+        identify social medias that have the most effect to then question why they are
+        most effective, and finally to usedemographical knowledge in conjunction with
+        marketing data to evaluate their effectivenessin certain groups."),
+      br(),
       h4("Data Sources"),
-      p()),
+      hr(),
+      p("In this project we have successfully found data on",
+        a("data world.", href= "https://data.world/"), "The datasets we chose from data.world was
+        collected via survey on an app known as Whatsgoodly.")),
     
-    
-    img("", src = "https://images.unsplash.com/photo-1567020250037-17e5372676d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2734&q=80",
-        height = 700, width = 600)
+    mainPanel(
+     img("", src = "https://images.unsplash.com/photo-1567020250037-17e5372676d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2734&q=80",
+        height = 700, width = 600))
     
   )
 )
