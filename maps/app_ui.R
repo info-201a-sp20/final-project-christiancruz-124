@@ -61,9 +61,9 @@ overview <- tabPanel(
         collected via survey on an app known as Whatsgoodly.")),
     
     mainPanel(
-     img("", src = "https://images.unsplash.com/photo-1567020250037-17e5372676d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2734&q=80",
-        height = 700, width = 600))
-    
+     img("", src = "https://images.pexels.com/photos/927629/pexels-photo-927629.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+        height = 500, width = 900)
+    )
   )
 )
 
