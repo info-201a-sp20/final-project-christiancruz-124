@@ -61,4 +61,14 @@ by_demo <- by_demo %>%
     twitter = sapply(by_demo$demographic, get_counts, "Twitter"),
     none = sapply(by_demo$demographic, get_counts, "None")
   ) %>%
-  filter(type != "Other")
+  filter(type != "Other") %>%
+  mutate(new_type = ifelse(grepl(1, type), "Economic Class",
+                           ifelse(grepl(2, type), "Gender",
+                                  ifelse(grepl(3, type), "GPA",
+                                         ifelse(grepl(4, type), "Major",
+                                                ifelse(grepl(5, type), "Race", "School level")
+                                         )
+                               )
+                      )
+            )
+  )

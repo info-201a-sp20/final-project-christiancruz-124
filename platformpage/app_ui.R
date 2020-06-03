@@ -3,7 +3,7 @@ library("shiny")
 
 source("platformpage/clean_data.R")
 
-col_names <- unique(by_demo$type)
+col_names <- unique(by_demo$new_type)
 
 # input element
 feature_input <- selectInput(

@@ -74,14 +74,6 @@ to_demo <- to_demo %>%
           )
   )
 
-by_demo <- by_demo %>%
-  mutate(type = replace(type, type == 1 , "Economic Class")) %>%
-  mutate(type = replace(type, type == 2 , "Gender")) %>%
-  mutate(type = replace(type, type == 3 , "GPA")) %>%
-  mutate(type = replace(type, type == 4 , "Major")) %>%
-  mutate(type = replace(type, type == 5 , "Race")) %>%
-  mutate(type = replace(type, type == 6 , "School level"))
-
 
 choices <- c("Race", "Gender", "School level", "GPA", "Major", "Economic Class")
 sidebar_content <- sidebarPanel(
