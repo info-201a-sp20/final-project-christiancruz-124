@@ -3,7 +3,7 @@
 library("shiny")
 library("tidyverse")
 
-raw <- read.csv("../data/Whatsgoodly - Thought Catalog Influencers.csv",
+raw <- read.csv("~/desktop/info 201/final-project-christiancruz-124/data/Whatsgoodly - Thought Catalog Influencers.csv",
   stringsAsFactors = FALSE
 ) %>%
   filter(

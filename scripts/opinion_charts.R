@@ -2,7 +2,7 @@
 library(tidyverse)
 
 # loading data
-data <- read.csv("data/Whatsgoodly - Thought Catalog Influencers.csv",
+data <- read.csv("~/desktop/info 201/final-project-christiancruz-124/data/Whatsgoodly - Thought Catalog Influencers.csv",
   stringsAsFactors = FALSE
 )
 
@@ -15,13 +15,16 @@ opinion_df <- data %>%
 
 # ==================== gathering relevant data for charts =====================
 overall_opinion <- opinion_df %>%
-  filter(Segment.Description == "Global results")
+  filter(Segment.Description == "Global results") %>%
+  select(Segment.Description, Opinion, Count, Percentage)
 
 by_gender <- opinion_df %>%
-  filter(Segment.Type == "Gender")
+  filter(Segment.Type == "Gender") %>%
+  select(Segment.Description, Opinion, Count, Percentage)
 
 by_race <- opinion_df %>%
-  filter(grepl("closely", Segment.Description))
+  filter(grepl("closely", Segment.Description)) %>%
+  select(Segment.Description, Opinion, Count, Percentage)
 
 by_econ <- opinion_df %>%
   filter(grepl("parents", Segment.Description)) %>%
@@ -32,31 +35,13 @@ by_econ <- opinion_df %>%
       )
     )
   )) %>%
-  mutate(Class = factor(Class, levels = c("Lower", "Lower-middle", "Upper-middle", "Upper")))
+  mutate(Class = factor(Class, levels = c("Lower", "Lower-middle", "Upper-middle", "Upper"))) %>%
+  select(Segment.Description, Opinion, Count, Percentage, Class)
 
 by_university <- opinion_df %>%
-  filter(Segment.Type == "University")
+  filter(Segment.Type == "University") %>%
+  select(Segment.Description, Opinion, Count, Percentage)
 
 by_major <- opinion_df %>%
-  filter(grepl("What's your major", Segment.Description))
-
-# =============================== charts ======================================
-
-# pie chart of overall opinion
-opinion_all <- ggplot(data = overall_opinion, aes(x = "", y = Count, fill = Opinion)) +
-  geom_bar(width = 1, stat = "identity") +
-  geom_text(
-    label = paste0(pull(overall_opinion, Percentage) * 100, "%"),
-    size = 5,
-    position = position_stack(vjust = .5)
-  ) +
-  coord_polar("y", start = 0) +
-  scale_fill_brewer(palette = "Set1") +
-  theme(
-    axis.title.x = element_blank(),
-    axis.title.y = element_blank(),
-    axis.text = element_blank(),
-    axis.ticks = element_blank(),
-    panel.grid = element_blank()
-  ) +
-  ggtitle("Overall opinion of social media marketing")
+  filter(grepl("What's your major", Segment.Description)) %>%
+  select(Segment.Description, Opinion, Count, Percentage)
