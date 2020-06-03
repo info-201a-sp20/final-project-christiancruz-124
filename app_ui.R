@@ -58,7 +58,17 @@ ui <- navbarPage(
     br(),
     p("2. Enter you conclusions here"),
     br(),
-    p("3. Enter your conclusions here")
-    
+    h5("Platform Effectiveness: Are They Really Effective?"),
+    p("A quick look at each of the demographic categories on platform influence
+      will easily show that there are a couple platforms that dominate the ad 
+      game. Both Facebook and instagram show clear signs as far as numbers that
+      they provide the most effective platform for social media marketting out 
+      of the options provided by the Whatsgoodly survey. However, an even more 
+      prevelant platform with bigger numbers than the two powerhouses seems to 
+      be neither and none of the listed apps. \"None\" is among the listed
+      categories that also has a high relative count of answers in each 
+      demographic category, which means a large amount of people feel they 
+      haven't been influenced by social media marketing. This poses the 
+      question of whether social media ads are effective at all.")
   )
 )
