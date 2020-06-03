@@ -4,7 +4,7 @@ library(ggmap)
 library(dplyr)
 
 source("maps/app_server.R")
-
+source("platformpage/app_ui.R")
 server <- function(input, output) {
   
   # leaflet for opinion by location
@@ -52,6 +52,24 @@ server <- function(input, output) {
       geom_col(position = "dodge") +
       scale_fill_brewer(palette = "Set1")
     
+    p
+  })
+  output$plot_histogram <- renderPlot({
+    to_plot <- by_demo %>%
+      filter(type == input$select) %>%
+      select(-type) %>%
+      gather(key = opinion , value = count, -demographic)
+    
+    p <- ggplot(
+      data = to_plot,
+      mapping = aes(
+        x = demographic,
+        y = count,
+        fill = opinion
+      )
+    ) +
+      geom_col(position = "fill") +
+      scale_fill_brewer(palette = "Set1")
     p
   })
 }

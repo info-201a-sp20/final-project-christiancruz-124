@@ -1,9 +1,10 @@
 library(shiny)
 source("maps/app_ui.R")
 source("platformpage/app_ui.R")
+source("Opinion/app_ui.R")
 
 ui <- navbarPage(
-  "Social Media and Online Shopping Trends",
+  "Influence of Social Media on Users",
   
   # first panel: overview
   tabPanel(
@@ -39,7 +40,7 @@ ui <- navbarPage(
   map_page,
   
   # third panel: col chart on opinion by demographic
-  
+  race_panel,
   
   # fouth panel: col chart on platform effectiveness by demographic
   ui_platform,
@@ -48,13 +49,17 @@ ui <- navbarPage(
   tabPanel(
     "Conclusions",
     titlePanel("Conclusions"),
-    h4("Based on the data we had the following insights:"),
+    h4("Based on the visualizations we had the following insights:"),
     br(),
-    p("1. When comparing attitudes toward marketing in different locations,", br(),
-      "the location did not affect attitude. However, we see a general trend", br(),
+    h5("Mapping Opionions: General Trends Show Negative Responses Throughout"),
+    p("When comparing attitudes toward marketing in different locations,", 
+      "the location did not affect attitude. However, we see a general trend", 
       "of dislike across the country followed by neutrality in second, and finally
-    positivity", br(), "as last. This leads us to wonder if social media marketing is effective", br(),
-      "and what features would make it more appealing to more users."),
+    positivity", "as last. This leads us to wonder if social media marketing is effective",
+      "and what features would make it more appealing to more users. Via this dataset, 
+      many of the ways effectiveness is measured is through the perspective of the users 
+      and this leads us the question their objectivity in the influence that social media 
+      holds in their own lives."),
     br(),
     p("2. Enter you conclusions here"),
     br(),

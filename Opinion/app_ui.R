@@ -2,7 +2,7 @@ library("shiny")
 library("tidyverse")
 library("dplyr")
 
-raw <- read.csv("~/desktop/info 201/final-project-christiancruz-124/data/Whatsgoodly - Thought Catalog Influencers.csv",
+raw <- read.csv("data/Whatsgoodly - Thought Catalog Influencers.csv",
                 stringsAsFactors = FALSE
 )
 # removing instance of duplicate rows
@@ -81,6 +81,7 @@ main_content <- mainPanel(
 )
 
 race_panel <- tabPanel(
+  "Opinion towards social media marketing",
   titlePanel("Opinion towards social media marketing"),
   sidebarLayout(
     sidebar_content,
