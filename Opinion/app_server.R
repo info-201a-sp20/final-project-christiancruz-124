@@ -12,23 +12,19 @@ library(tidyverse)
 library(ggplot2)
 source("app_ui.R")
 server <- function(input, output) {
-  output$plot <- renderPlot({
+  output$plot_histogram <- renderPlot({
     to_plot <- by_demo %>%
       filter(type == input$select) %>%
       select(-type) %>%
       gather(key = opinion , value = count, -demographic)
-    
-    p <- ggplot(
-      data = to_plot,
-      mapping = aes(
-        x = demographic,
-        y = count,
-        fill = opinion
-      )
-    ) +
-      geom_col(position = "fill") +
-      scale_fill_brewer(palette = "Set1")
-    p
+
+    p <- ggplot(data = to_plot) +
+            geom_col(mapping = aes(x = demographic,
+                                   y = count),
+                     fill = opinion,
+                     position = "fill") +
+      scale_fill_brewer(palette = "Set1") +
+      labs(x = "Concerned Groups", y = "Opinions")
+
   })
 }
-

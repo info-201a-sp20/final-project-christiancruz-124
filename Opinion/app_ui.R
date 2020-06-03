@@ -63,8 +63,8 @@ to_demo <- to_demo %>%
     negative = sapply(to_demo$demographic, get_counts, "negative"),
   ) %>%
   filter(type != "Other") %>%
-  mutate(new_type = ifelse(grepl(1, type), "Economic Class", 
-                           ifelse(grepl(2, type), "Gender", 
+  mutate(new_type = ifelse(grepl(1, type), "Economic Class",
+                           ifelse(grepl(2, type), "Gender",
                                   ifelse(grepl(3, type), "GPA",
                                          ifelse(grepl(4, type), "Major",
                                                 ifelse(grepl(5, type), "Race", "School level")
@@ -74,20 +74,29 @@ to_demo <- to_demo %>%
           )
   )
 
+by_demo <- by_demo %>%
+  mutate(type = replace(type, type == 1 , "Economic Class")) %>%
+  mutate(type = replace(type, type == 2 , "Gender")) %>%
+  mutate(type = replace(type, type == 3 , "GPA")) %>%
+  mutate(type = replace(type, type == 4 , "Major")) %>%
+  mutate(type = replace(type, type == 5 , "Race")) %>%
+  mutate(type = replace(type, type == 6 , "School level"))
+
+
 choices <- c("Race", "Gender", "School level", "GPA", "Major", "Economic Class")
 sidebar_content <- sidebarPanel(
   selectInput(
     inputId = "select",
     label = "Choose concerned group",
     choice = choices,
-    selected = "Overall"
+    selected = "Gender"
   )
 )
 
 main_content <- mainPanel(
   p("Below is a graph that shows
-      opinion of different groups towards social media marketing ."),
-  plotOutput("plot_histogram")
+      opinion of different groups towards social media marketing."),
+  plotOutput(outputId = "plot_histogram")
 )
 
 race_panel <- tabPanel(
@@ -98,4 +107,3 @@ race_panel <- tabPanel(
     main_content
   )
 )
-
