@@ -2,12 +2,12 @@
 library(tidyverse)
 
 # loading data
-data <- read.csv("~/desktop/info 201/final-project-christiancruz-124/data/Whatsgoodly - Thought Catalog Influencers.csv",
+raw <- read.csv("~/desktop/info 201/final-project-christiancruz-124/data/Whatsgoodly - Thought Catalog Influencers.csv",
   stringsAsFactors = FALSE
 )
 
 # filtering data for question on annoyance
-opinion_df <- data %>%
+opinion_df <- raw %>%
   filter(grepl("Does it annoy you", Question)) %>%
   mutate(Opinion = ifelse(grepl("Y", Answer), "negative",
     ifelse(grepl("N", Answer), "positive", "neutral")

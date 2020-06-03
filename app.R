@@ -3,6 +3,7 @@ library(ggplot2)
 library(dplyr)
 library(tidyr)
 library(leaflet)
+library(ggmap)
 source("app_ui.R")
 source("app_server.R")
 

@@ -4,13 +4,13 @@ library(tidyr)
 library(leaflet)
 library(ggmap)
 library(stringr)
-source("../api_keys.R")
+source("api_keys.R")
 
 ### Loading Data Into File ###
 
 ggmap::register_google(key = api_key)
 
-data = read.csv("../data/Whatsgoodly - Thought Catalog Influencers.csv",
+data = read.csv("data/Whatsgoodly - Thought Catalog Influencers.csv",
                 stringsAsFactors = FALSE) 
 
 ### Data cleanup ###
