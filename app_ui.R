@@ -20,8 +20,8 @@ ui <- navbarPage(
         importance in such analysis lies in the ability to have a better understanding
         of the strategies used to influence shoppers, understand the feelings of users,
         identify social medias that have the most effect to then question why they are
-        most effective, and finally to usedemographical knowledge in conjunction with
-        marketing data to evaluate their effectivenessin certain groups."),
+        most effective, and finally to use demographical knowledge in conjunction with
+        marketing data to evaluate their effectiveness in certain groups."),
         br(),
         h4("Data Sources"),
         hr(),
@@ -51,7 +51,7 @@ ui <- navbarPage(
     titlePanel("Conclusions"),
     h4("Based on the visualizations we had the following insights:"),
     br(),
-    h5("Mapping Opionions: General Trends Show Negative Responses Throughout"),
+    h5("Mapping Opinions: General Trends Show Negative Responses Throughout"),
     p("When comparing attitudes toward marketing in different locations,", 
       "the location did not affect attitude. However, we see a general trend", 
       "of dislike across the country followed by neutrality in second, and finally
@@ -61,7 +61,12 @@ ui <- navbarPage(
       and this leads us the question their objectivity in the influence that social media 
       holds in their own lives."),
     br(),
-    p("2. Enter you conclusions here"),
+    h5("Opinions by Demographics: General Consensus"),
+    p("Looking at different demographic groups and their opinion on social media marketing 
+      resulted in a fairly unified response. It appears that demographics does not really 
+      change the opinion of users and in fact most demographics tended to have the following 
+      scheme; highest ratio who felt negatively, then neutral, and finally positive. This shows 
+      a general trend consisting mostly of dislike or neutrality towards marketing tactics."),
     br(),
     h5("Platform Effectiveness: Are They Really Effective?"),
     p("A quick look at each of the demographic categories on platform influence
