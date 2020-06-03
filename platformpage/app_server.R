@@ -1,3 +1,6 @@
+# Chrisitan Cruz
+# shiny app server for platform page
+
 library("tidyverse")
 library("shiny")
 

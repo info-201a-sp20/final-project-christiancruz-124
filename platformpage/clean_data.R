@@ -1,6 +1,6 @@
 library("tidyverse")
 
-raw <- read.csv("../data/Whatsgoodly - Thought Catalog Influencers.csv",
+raw <- read.csv("data/Whatsgoodly - Thought Catalog Influencers.csv",
                 stringsAsFactors = FALSE
 ) %>%
   filter(
