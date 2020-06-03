@@ -56,7 +56,11 @@ ui <- navbarPage(
     positivity", br(), "as last. This leads us to wonder if social media marketing is effective", br(),
       "and what features would make it more appealing to more users."),
     br(),
-    p("2. Enter you conclusions here"),
+    p("2. Based on the summary of opinion of people who took the survey,)",br(),
+      "It could be found that among different group of people,opinions are varied.",br(),
+      "The general trend, however, shows a negative attitute towards social media marketing",br(),
+      "Whether social media marketing is effective cannot be told from the summary since the inluence",br(),
+      "of the advertisements may be unrealized.",
     br(),
     p("3. Enter your conclusions here")
     

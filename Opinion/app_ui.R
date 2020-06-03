@@ -64,20 +64,29 @@ by_demo <- by_demo %>%
   ) %>%
   filter(type != "Other")
 
+by_demo <- by_demo %>% 
+  mutate(type = replace(type, type == 1 , "Economic Class")) %>%
+  mutate(type = replace(type, type == 2 , "Gender")) %>%
+  mutate(type = replace(type, type == 3 , "GPA")) %>%
+  mutate(type = replace(type, type == 4 , "Major")) %>%
+  mutate(type = replace(type, type == 5 , "Race")) %>%
+  mutate(type = replace(type, type == 6 , "School level"))
+
+
 choices <- c("Race", "Gender", "School level", "GPA", "Major", "Economic Class")
 sidebar_content <- sidebarPanel(
   selectInput(
     inputId = "select",
     label = "Choose concerned group",
     choice = choices,
-    selected = "Overall"
+    selected = "Gender"
   )
 )
 
 main_content <- mainPanel(
   p("Below is a graph that shows
-      opinion of different groups towards social media marketing ."),
-  plotOutput("plot_histogram")
+      opinion of different groups towards social media marketing."),
+  plotOutput(outputId = "plot_histogram")
 )
 
 race_panel <- tabPanel(
