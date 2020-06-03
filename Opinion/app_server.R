@@ -8,9 +8,9 @@
 #
 
 library(shiny)
-library("tidyverse")
-library("ggplot2")
-
+library(tidyverse)
+library(ggplot2)
+source("app_ui.R")
 server <- function(input, output) {
   output$plot <- renderPlot({
     to_plot <- by_demo %>%

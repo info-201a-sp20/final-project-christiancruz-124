@@ -48,21 +48,31 @@ get_counts <- function(demographic, opinion) {
 
 # clean dataframe of amount of users influenced by social media marketing
 # by each demographic
-by_demo <- data.frame(
+to_demo <- data.frame(
   demographic = unique(raw$Segment.Description),
   row.names = NULL,
   stringsAsFactors = FALSE
 )
 
 # adding type and counts to by_demo and filtering out "other" type
-by_demo <- by_demo %>%
+to_demo <- to_demo %>%
   mutate(
-    type = sapply(by_demo$demographic, assign),
-    positive = sapply(by_demo$demographic, get_counts, "positive"),
-    neutral = sapply(by_demo$demographic, get_counts, "neutral"),
-    negative = sapply(by_demo$demographic, get_counts, "negative"),
+    type = sapply(to_demo$demographic, assign),
+    positive = sapply(to_demo$demographic, get_counts, "positive"),
+    neutral = sapply(to_demo$demographic, get_counts, "neutral"),
+    negative = sapply(to_demo$demographic, get_counts, "negative"),
   ) %>%
-  filter(type != "Other")
+  filter(type != "Other") %>%
+  mutate(new_type = ifelse(grepl(1, type), "Economic Class", 
+                           ifelse(grepl(2, type), "Gender", 
+                                  ifelse(grepl(3, type), "GPA",
+                                         ifelse(grepl(4, type), "Major",
+                                                ifelse(grepl(5, type), "Race", "School level")
+                                      )
+                             )
+                    )
+          )
+  )
 
 choices <- c("Race", "Gender", "School level", "GPA", "Major", "Economic Class")
 sidebar_content <- sidebarPanel(
@@ -89,7 +99,3 @@ race_panel <- tabPanel(
   )
 )
 
-ui <- navbarPage(
-  "Study of social media marketing",
-  race_panel
-)

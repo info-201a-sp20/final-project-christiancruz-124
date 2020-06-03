@@ -5,6 +5,7 @@ library(dplyr)
 
 source("maps/app_server.R")
 source("platformpage/app_ui.R")
+source("Opinion/app_ui.R")
 server <- function(input, output) {
   
   # leaflet for opinion by location
@@ -55,16 +56,16 @@ server <- function(input, output) {
     p
   })
   output$plot_histogram <- renderPlot({
-    to_plot <- by_demo %>%
-      filter(type == input$select) %>%
-      select(-type) %>%
-      gather(key = opinion , value = count, -demographic)
+    to_plot <- to_demo %>%
+      filter(new_type == input$select) %>%
+      select(-new_type, -type) %>%
+      gather(key = opinion , value = total, -demographic)
     
     p <- ggplot(
       data = to_plot,
       mapping = aes(
         x = demographic,
-        y = count,
+        y = total,
         fill = opinion
       )
     ) +
