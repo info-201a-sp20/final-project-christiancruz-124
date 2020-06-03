@@ -61,11 +61,12 @@ ui <- navbarPage(
       and this leads us the question their objectivity in the influence that social media
       holds in their own lives."),
     br(),
-    p("2. Based on the summary of opinion of people who took the survey,)",br(),
+    h5("Demographics and Opinion: General Consensus"),
+    p("Based on the summary of opinion of people who took the survey,",br(),
       "It could be found that among different group of people,opinions are varied.",br(),
       "The general trend, however, shows a negative attitute towards social media marketing",br(),
       "Whether social media marketing is effective cannot be told from the summary since the inluence",br(),
-      "of the advertisements may be unrealized.",
+      "of the advertisements may be unrealized."),
     br(),
     h5("Platform Effectiveness: Are They Really Effective?"),
     p("A quick look at each of the demographic categories on platform influence
