@@ -27,7 +27,6 @@ map_page <- tabPanel(
         then lead to further analysis such as the causes of regional disparites and 
         general attitudes toward social media marketing."),
       
-      br(),
       hr(),
       radioButtons(inputId = "view", label = "Select an Opinion",
                    choices = opinions, selected = "Positive")
@@ -51,9 +50,9 @@ overview <- tabPanel(
       
     ),
     mainPanel(
-      img("", src = "https://images.unsplash.com/photo-1567020250037-
-          17e5372676d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2734&q=80",
-          height = 750, width = 700))
+      img("", src = "https://images.unsplash.com/photo-1567020250037-17e5372676d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2734&q=80",
+          height = 700, width = 600)
+    )
   )
 )
 
