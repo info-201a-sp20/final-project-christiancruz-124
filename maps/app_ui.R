@@ -76,8 +76,8 @@ conclusion <- tabPanel(
   p("1. When comparing attitudes toward marketing in different locations,", br(),
      "the location did not affect attitude. However, we see a general trend", br(),
     "of dislike across the country followed by neutrality in second, and finally
-    positivity", br(), "as last. This leads us to wonder if social media marketing is effective,", br(),
-    "or leads us to question how aware users are to the level that they are influenced."),
+    positivity", br(), "as last. This leads us to wonder if social media marketing is effective", br(),
+    "and what features would make it more appealing to more users."),
   br(),
   p("2. Enter you conclusions here"),
   br(),
