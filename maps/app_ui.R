@@ -3,7 +3,7 @@ library(shiny)
 
 ### Loading Data Into File ###
 
-data = read.csv("data/Whatsgoodly - Thought Catalog Influencers.csv",
+data = read.csv("../data/Whatsgoodly - Thought Catalog Influencers.csv",
                 stringsAsFactors = FALSE)
 
 ### Creating Variable for Widget Control ###
