@@ -1,7 +1,7 @@
 library("tidyverse")
 library("shiny")
 
-source("clean_data.R")
+source("platformpage/clean_data.R")
 
 col_names <- unique(by_demo$type)
 
@@ -13,10 +13,17 @@ feature_input <- selectInput(
   selected = "Major"
 )
 
-# Shiny app ui and server function
-
 ui_platform <- tabPanel(
+  "Platform Effectiveness",
   titlePanel("Influence On Users By Platform"),
-  feature_input,
-  plotOutput(outputId = "plot")
+  sidebarPanel(
+    h4("Purpose"),
+    hr(),
+    p(""),
+    hr(),
+    feature_input,
+  ),
+  mainPanel(
+    plotOutput(outputId = "plot")
+  )
 )
