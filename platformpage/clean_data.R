@@ -63,10 +63,11 @@ by_demo <- by_demo %>%
   ) %>%
   filter(type != "Other") %>%
   mutate(new_type = ifelse(grepl(1, type), "Economic Class",
-                           ifelse(grepl(2, type), "Gender",
-                                  ifelse(grepl(3, type), "GPA",
-                                         ifelse(grepl(4, type), "Major",
-                                                ifelse(grepl(5, type), "Race", "School level")
+                           ifelse(grepl(2, type), "Employment Status",
+                                  ifelse(grepl(3, type), "Gender",
+                                         ifelse(grepl(4, type), "GPA",
+                                                ifelse(grepl(5, type), "Major",
+                                                       ifelse(grepl(6, type), "Race", "Education"))
                                          )
                                )
                       )
