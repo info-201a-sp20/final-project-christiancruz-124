@@ -16,7 +16,8 @@ raw <- raw[-c(296:300), ]
 # dict for assigning correct type to a string key
 dict <- data.frame(
   key = c("identify", "voters", "job", "I'm in", "GPA", "your major", "make"),
-  value = c("Race", "Gender", "Employment Status", "School level", "GPA", "Major", "Economic Class")
+  value = c("Race", "Gender", "Employment Status", "School level", "GPA", "Major", "Economic Class"),
+  stringsAsFactors = FALSE
 )
 
 # takes a specific demographic string and returns its corresponding demographic
@@ -61,15 +62,4 @@ by_demo <- by_demo %>%
     twitter = sapply(by_demo$demographic, get_counts, "Twitter"),
     none = sapply(by_demo$demographic, get_counts, "None")
   ) %>%
-  filter(type != "Other") %>%
-  mutate(new_type = ifelse(grepl(1, type), "Economic Class",
-                           ifelse(grepl(2, type), "Employment Status",
-                                  ifelse(grepl(3, type), "Gender",
-                                         ifelse(grepl(4, type), "GPA",
-                                                ifelse(grepl(5, type), "Major",
-                                                       ifelse(grepl(6, type), "Race", "Education"))
-                                         )
-                               )
-                      )
-            )
-  )
+  filter(type != "Other") 

@@ -2,14 +2,14 @@ library("shiny")
 library("tidyverse")
 library("dplyr")
 
-raw <- read.csv("data/Whatsgoodly - Thought Catalog Influencers.csv",
+trial <- read.csv("data/Whatsgoodly - Thought Catalog Influencers.csv",
                 stringsAsFactors = FALSE
 )
 # removing instance of duplicate rows
 
-raw <- raw[-c(13:411), ]
+trial <- trial[-c(13:411, 4514:4516),  ]
 
-opinion_df <- raw %>%
+opinion_df <- trial %>%
   filter(grepl("Does it annoy you", Question)) %>%
   mutate(Opinion = ifelse(grepl("Y", Answer), "negative",
                           ifelse(grepl("N", Answer), "positive", "neutral")
@@ -17,18 +17,19 @@ opinion_df <- raw %>%
 
 # functions for creating tidy dataframe
 # dict for assigning correct type to a string key
-dict <- data.frame(
+di <- data.frame(
   key = c("identify", "voters",  "I'm in", "GPA", "your major", "make"),
-  value = c("Race", "Gender", "School level", "GPA", "Major", "Economic Class")
+  value = c("Race", "Gender", "School level", "GPA", "Major", "Economic Class"),
+  stringsAsFactors = FALSE
 )
 
 # takes a specific demographic string and returns its corresponding demographic
 # type as a string
 assign <- function(demographic) {
   value <- ""
-  for (i in 1:nrow(dict)) {
-    if (grepl(dict[i, "key"], demographic)) {
-      return(dict[i, "value"])
+  for (i in 1:nrow(di)) {
+    if (grepl(di[i, "key"], demographic)) {
+      return(di[i, "value"])
     }
   }
   return("Other")
@@ -49,7 +50,7 @@ get_counts <- function(demographic, opinion) {
 # clean dataframe of amount of users influenced by social media marketing
 # by each demographic
 to_demo <- data.frame(
-  demographic = unique(raw$Segment.Description),
+  demographic = unique(trial$Segment.Description),
   row.names = NULL,
   stringsAsFactors = FALSE
 )
@@ -62,18 +63,7 @@ to_demo <- to_demo %>%
     neutral = sapply(to_demo$demographic, get_counts, "neutral"),
     negative = sapply(to_demo$demographic, get_counts, "negative"),
   ) %>%
-  filter(type != "Other") %>%
-  mutate(new_type = ifelse(grepl(1, type), "Economic Class",
-                           ifelse(grepl(2, type), "Gender",
-                                  ifelse(grepl(3, type), "GPA",
-                                         ifelse(grepl(4, type), "Major",
-                                                ifelse(grepl(5, type), "Race", "School level")
-                                      )
-                             )
-                    )
-          )
-  )
-
+  filter(type != "Other") 
 
 choices <- c("Race", "Gender", "School level", "GPA", "Major", "Economic Class")
 sidebar_content <- sidebarPanel(

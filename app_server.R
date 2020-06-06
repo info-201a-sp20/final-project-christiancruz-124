@@ -38,8 +38,8 @@ server <- function(input, output) {
   # col chart on platform influence by demographic
   output$plot <- renderPlot({
     to_plot <- by_demo %>%
-      filter(new_type == input$feature) %>%
-      select(-type, -new_type) %>%
+      filter(type == input$feature) %>%
+      select(-type) %>%
       gather(key = platform, value = total, -demographic)
     
     p <- ggplot(
@@ -57,8 +57,8 @@ server <- function(input, output) {
   })
   output$plot_histogram <- renderPlot({
     to_plot <- to_demo %>%
-      filter(new_type == input$select) %>%
-      select(-new_type, -type) %>%
+      filter(type == input$select) %>%
+      select(-type) %>%
       gather(key = opinion , value = total, -demographic)
     
     p <- ggplot(
