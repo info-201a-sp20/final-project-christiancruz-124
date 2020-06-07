@@ -16,12 +16,14 @@ opinions <- list("Positive", "Negative", "Neutral")
 
 map_page <- tabPanel(
   "Mapping Marketing Responses",
-  titlePanel("Regional Opinions of Social Media Marketing in the US"),
+  tags$h1(class = "header",
+          "Regional Opinions of Social Media Marketing in the US"),
   sidebarLayout(
     sidebarPanel(
-      h4("Purpose"),
+      tags$h4(class= "sub",
+              "Purpose"),
       hr(),
-      p("The map on the right aims to depict opinions of social media users
+      tags$p("The map on the right aims to depict opinions of social media users
         in regards to social media marketing by location. By creating such a map,
         possible trends in opinion by region can be brought to light as well as the overall 
         understanding of attitudes in the US in general. This information can 

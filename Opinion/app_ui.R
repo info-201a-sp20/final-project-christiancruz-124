@@ -76,14 +76,15 @@ sidebar_content <- sidebarPanel(
 )
 
 main_content <- mainPanel(
-  p("Below is a graph that shows
+  tags$p("Below is a graph that shows
       opinion of different groups towards social media marketing."),
   plotOutput(outputId = "plot_histogram")
 )
 
 race_panel <- tabPanel(
-  "Opinion towards social media marketing",
-  titlePanel("Opinion towards social media marketing"),
+  "Opinion Towards Social Media Marketing",
+  tags$h1(class = "header",
+          "Opinion towards social media marketing"),
   sidebarLayout(
     sidebar_content,
     main_content

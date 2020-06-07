@@ -15,11 +15,13 @@ feature_input <- selectInput(
 
 ui_platform <- tabPanel(
   "Platform Effectiveness",
-  titlePanel("Influence On Users By Platform"),
+  tags$h1(class = "header",
+          "Influence On Users By Platform"),
   sidebarPanel(
-    h4("Purpose"),
+    tags$h4(class= "sub",
+            "Purpose"),
     hr(),
-    p("The Whatsgoodly survey asks survey takers \"What social platform has
+    tags$p("The Whatsgoodly survey asks survey takers \"What social platform has
       influenced your online shopping most?\" They're given five possible
       answers: Facebook, Instagram, Twitter, Snapchat and None (indicating
       that the person does not feel their shopping habits have been influenced
