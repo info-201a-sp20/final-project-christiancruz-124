@@ -1,7 +1,7 @@
 library("tidyverse")
 
 raw <- read.csv("data/Whatsgoodly - Thought Catalog Influencers.csv",
-                stringsAsFactors = FALSE
+  stringsAsFactors = FALSE
 ) %>%
   filter(
     grepl("social platform", Question),
@@ -16,7 +16,7 @@ raw <- raw[-c(296:300), ]
 # dict for assigning correct type to a string key
 dict <- data.frame(
   key = c("identify", "voters", "job", "I'm in", "GPA", "your major", "make"),
-  value = c("Race", "Gender", "Employment Status", "School level", "GPA", "Major", "Economic Class"),
+  value = c("Race", "Gender", "Employment Status", "School Level", "GPA", "Major", "Economic Class"),
   stringsAsFactors = FALSE
 )
 
@@ -56,10 +56,18 @@ by_demo <- data.frame(
 by_demo <- by_demo %>%
   mutate(
     type = sapply(by_demo$demographic, assign),
-    facebook = sapply(by_demo$demographic, get_counts, "Facebook"),
-    instagram = sapply(by_demo$demographic, get_counts, "Instagram"),
-    snapchat = sapply(by_demo$demographic, get_counts, "Snapchat"),
-    twitter = sapply(by_demo$demographic, get_counts, "Twitter"),
-    none = sapply(by_demo$demographic, get_counts, "None")
+    Facebook = sapply(by_demo$demographic, get_counts, "Facebook"),
+    Instagram = sapply(by_demo$demographic, get_counts, "Instagram"),
+    Snapchat = sapply(by_demo$demographic, get_counts, "Snapchat"),
+    Twitter = sapply(by_demo$demographic, get_counts, "Twitter"),
+    None = sapply(by_demo$demographic, get_counts, "None"),
+    demographic = gsub("[^\x01-\x7F]", "", ifelse(grepl("\\?", demographic),
+      substr(
+        demographic,
+        str_locate(demographic, "\\?") + 2,
+        nchar(demographic)
+      ),
+      demographic
+    ))
   ) %>%
-  filter(type != "Other") 
+  filter(type != "Other")
