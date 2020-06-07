@@ -16,4 +16,11 @@ p {
 }
 .sub {
    color:#97B9E1;
- }
+}
+
+img { 
+  border-style: solid;
+  border-color: #748FAF;
+  border-width: 3px;
+}
+
