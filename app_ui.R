@@ -34,7 +34,7 @@ ui <- navbarPage(
         collected via survey on an app known as Whatsgoodly.")),
 
       mainPanel(
-        img("", src = "https://images.pexels.com/photos/927629/pexels-photo-927629.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      tags$img(id = "img", "", src = "https://images.pexels.com/photos/927629/pexels-photo-927629.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
             height = 500, width = 900)
       )
     )

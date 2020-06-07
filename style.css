@@ -1,9 +1,12 @@
 body {
-  background-color: #E5F1FF;
+  background-color: #F2FBFF;
 }
 
 .navbar-default {
-  color: #7CACF8;
+  background-color: #CDE6FD;
+  color: black;
+  font-family:'Century Gothic', sans-serif;
+  font-size: 15px;
 }
 
 p {
@@ -18,7 +21,7 @@ p {
    color:#97B9E1;
 }
 
-img { 
+#img { 
   border-style: solid;
   border-color: #748FAF;
   border-width: 3px;
