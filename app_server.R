@@ -15,11 +15,17 @@ server <- function(input, output) {
         lat = latlon$lat,
         lon = latlon$lon
       ) %>%
-      mutate(description = paste(
-        sep = "<br/>", Segment.Description,
-        paste(input$view, "Opinion:", perc, "%")
-      )) %>%
-      select(Segment.Description, Count, Opinion, lat, lon, perc, description)
+      select(Segment.Description, Count, Opinion, lat, lon, perc)
+   
+     label_maker <- function(row){
+       paste0(
+         "<p>Location: ", pull(select(row, Segment.Description)), "</p>",
+         "<p>Percentage with ", input$view, 
+         " Opinions: ", pull(select(row, perc)), "%", "</p>"
+       )
+     }
+    final_data <- final_data %>%
+      mutate(description = label_maker(final_data))
 
     widget_data <- final_data %>%
       filter(Opinion == input$view)
@@ -31,9 +37,9 @@ server <- function(input, output) {
         lat = ~lat,
         lng = ~lon,
         stroke = FALSE,
-        popup = ~description,
         radius = ~ perc * 1000,
-        color = "blue"
+        color = "blue",
+        label = lapply(pull(select(widget_data, description)), htmltools::HTML)
       )
 
     return(m)
