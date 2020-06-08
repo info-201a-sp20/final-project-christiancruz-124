@@ -19,7 +19,7 @@ opinion_df <- trial %>%
 # dict for assigning correct type to a string key
 di <- data.frame(
   key = c("identify", "voters",  "I'm in", "GPA", "your major", "make"),
-  value = c("Race", "Gender", "School level", "GPA", "Major", "Economic Class"),
+  value = c("Race", "Gender", "School Level", "GPA", "Major", "Economic Class"),
   stringsAsFactors = FALSE
 )
 
@@ -59,13 +59,21 @@ to_demo <- data.frame(
 to_demo <- to_demo %>%
   mutate(
     type = sapply(to_demo$demographic, assign),
-    positive = sapply(to_demo$demographic, get_counts, "positive"),
-    neutral = sapply(to_demo$demographic, get_counts, "neutral"),
-    negative = sapply(to_demo$demographic, get_counts, "negative"),
+    Positive = sapply(to_demo$demographic, get_counts, "positive"),
+    Neutral = sapply(to_demo$demographic, get_counts, "neutral"),
+    Negative = sapply(to_demo$demographic, get_counts, "negative"),
+    demographic = gsub("[^\x01-\x7F]", "", ifelse(grepl("\\?", demographic),
+      substr(
+        demographic,
+        str_locate(demographic, "\\?") + 2,
+        nchar(demographic)
+      ),
+      demographic
+    ))
   ) %>%
-  filter(type != "Other") 
+  filter(type != "Other")
 
-choices <- c("Race", "Gender", "School level", "GPA", "Major", "Economic Class")
+choices <- c("Race", "Gender", "School Level", "GPA", "Major", "Economic Class")
 sidebar_content <- sidebarPanel(
   selectInput(
     inputId = "select",

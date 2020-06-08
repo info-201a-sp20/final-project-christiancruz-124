@@ -80,6 +80,17 @@ server <- function(input, output) {
       filter(type == input$select) %>%
       select(-type) %>%
       gather(key = opinion, value = total, -demographic)
+    
+    if (input$select == "GPA") {
+      to_plot <- to_plot %>%
+        mutate(demographic = fct_relevel(demographic, "Below 1.0 ", "1.0 to 2.0", "2.0 to 3.0", "3.0 to 4.0", "Above 4.0 "))
+    } else if (input$select == "Economic Class") {
+      to_plot <- to_plot %>%
+        mutate(demographic = fct_relevel(demographic, "Poor (< ~$50K) ", "Middle / lower-middle class (~$90K)", "Upper-middle class (~$160K", "Upper class (> $240K)"))
+    } else if (input$select == "School Level") {
+      to_plot <- to_plot %>%
+        mutate(demographic = fct_relevel(demographic, "High School", "College", "Grad School", "Post-grad", "Other"))
+    }
 
     p <- ggplot(
       data = to_plot,
@@ -90,7 +101,12 @@ server <- function(input, output) {
       )
     ) +
       geom_col(position = "fill") +
-      scale_fill_brewer(palette = "Set1")
+      scale_fill_brewer(name = "Opinion", palette = "Set1") +
+      xlab(input$select) +
+      ylab("Count")
+      theme(
+        axis.text.x = element_text(angle = 45, hjust = 1)
+      )
     p
   })
 }
