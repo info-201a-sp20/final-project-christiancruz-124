@@ -1,9 +1,9 @@
 library(shiny)
 library(ggplot2)
-install.packages(ggmap)
 library(ggmap)
 library(dplyr)
 library(plotly)
+library(DT)
 
 source("maps/app_server.R")
 source("platformpage/app_ui.R")
@@ -147,5 +147,25 @@ server <- function(input, output) {
         panel.grid = element_blank()
       )
     p
+  })
+  output$table <- renderDataTable({
+    
+    table_data <- cleanup_data %>%
+      group_by(Segment.Description) %>%
+      mutate(total = sum(Count, na.rm = TRUE))
+    
+    table_data <- table_data %>%
+      arrange(desc(total)) 
+    
+    table_data<- table_data[c(1:15), ] %>%
+      mutate(description = paste0(round(perc,0), "%")) %>%
+      select(Segment.Description, Opinion, description)
+
+    names(table_data)[1] <- "Location"
+    names(table_data)[3] <- "Percentage (%)"
+
+    DT::datatable(table_data, options =
+                    list(lengthMenu = c(15), pageLength = 15))
+      
   })
 }

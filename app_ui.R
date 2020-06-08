@@ -69,6 +69,10 @@ ui <- navbarPage(
       "Via this dataset, many of the ways effectiveness is measured is through",
       "the perspective of the users and this leads us the question their objectivity",
       "in the influence that social media holds in their own lives."),
+    DT::dataTableOutput("table"),
+    tags$p("The table above further highlights the points above, as we take percentage 
+           of opinion from 5 different locations and compare them. We can clearly see
+           that almost all regions lean toward negative or neutral as opposed to positive."),
     br(),
     tags$h4(class = "insight",
             "Demographics and Opinion: General Consensus"),

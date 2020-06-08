@@ -11,5 +11,5 @@ get_table <- function(ds) {
     select(Segment.Description, Answer, real_perc, Count) %>%
     kable(col.names = c("Gender", "Platform w/ Most Shopping Influence",
                         "Percentage of Gender", "Voter Count"))
-  
+
 }
