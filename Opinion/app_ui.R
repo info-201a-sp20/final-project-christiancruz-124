@@ -86,7 +86,7 @@ sidebar_content <- sidebarPanel(
 main_content <- mainPanel(
   tags$p("Below is a graph that shows
       opinion of different groups towards social media marketing."),
-  plotOutput(outputId = "plot_histogram")
+  plotlyOutput(outputId = "plot_histogram")
 )
 
 race_panel <- tabPanel(
@@ -95,6 +95,15 @@ race_panel <- tabPanel(
           "Opinion Towards Social Media Marketing"),
   sidebarLayout(
     sidebar_content,
-    main_content
+    main_content,
+    tags$h3(class= "sub",
+            "Purpose"),
+    hr(),
+    tags$p("The bar graph aims to shown the opinion of different concern groups
+           towards social media marketing. With the fill of type of opinions,
+           every type of survey taker within each group shows the general ratio of opinions.
+           This information can then lead to further analysis such as how ages, gender and income class
+           would effect general attitudes toward social media marketing."),
+    hr(),
   )
 )

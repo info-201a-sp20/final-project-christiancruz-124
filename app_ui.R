@@ -4,7 +4,7 @@ source("platformpage/app_ui.R")
 source("Opinion/app_ui.R")
 
 ui <- navbarPage(
-  "Influence of Social Media on Users",
+  "Effectiveness and influences of social media marketing",
 
   # first panel: overview
   tabPanel(
@@ -17,8 +17,8 @@ ui <- navbarPage(
         tags$h3(class= "sub",
                 "Purpose"),
         hr(),
-        tags$p("In an effort to understand the effects social media has on users, we have
-        decided to explore social media and how marketing affects spending on
+        tags$p("In an effort to understand the effects social media marketing has on users,
+        we have decided to explore social media and how marketing affects spending on
         popular social media sites as well as it's over all reception by users. The
         importance in such analysis lies in the ability to have a better understanding
         of the strategies used to influence shoppers, understand the feelings of users,
@@ -61,21 +61,29 @@ ui <- navbarPage(
     tags$h4(class = "insight",
             "Mapping Opinions: General Trends Show Negative Responses Throughout"),
     tags$p("When comparing attitudes toward marketing in different locations,",
-      "the location did not affect attitude. However, we see a general trend",
-      "of dislike across the country followed by neutrality in second, and finally
-    positivity", "as last. This leads us to wonder if social media marketing is effective",
-      "and what features would make it more appealing to more users. Via this dataset,
-      many of the ways effectiveness is measured is through the perspective of the users
-      and this leads us the question their objectivity in the influence that social media
-      holds in their own lives."),
+      "the connection between user attitude and location is not abosolute.",
+      "However, we see a general trend of dislike across the country",
+      "followed by neutrality in second, and finally positivity as last.",
+      "This does not show whether that social media marketing is effective or not,",
+      "but consumers definitely have a generally negative attitude towards this kind of marketing.",
+      "Via this dataset, many of the ways effectiveness is measured is through",
+      "the perspective of the users and this leads us the question their objectivity",
+      "in the influence that social media holds in their own lives."),
     br(),
     tags$h4(class = "insight",
             "Demographics and Opinion: General Consensus"),
-    tags$p("Based on the summary of opinion of people who took the survey,",br(),
-      "It could be found that among different group of people,opinions are varied.",br(),
-      "The general trend, however, shows a negative attitute towards social media marketing",br(),
-      "Whether social media marketing is effective cannot be told from the summary since the inluence",br(),
-      "of the advertisements may be unrealized."),
+    tags$p("Based on the summary of opinion of people who took the survey,",
+      "It could be found that among different group of people, opinions are varied.",
+      "The general trend, however, shows a negative/neutral attitute towards social media marketing",
+      "Whether social media marketing is effective cannot be told from the summary since the inluence",
+      "of the advertisements may be underestimated."),br(),
+      "According to",a("social media impact.", 
+                       href= "http://www.socialmediaimpact.com/impact-social-media-marketing-today/
+                       #:~:text=Using%20social%20media%20platforms%20like,helps%20in%20developing%20business%20tactics."),
+      "Social Media Marketing is having a tremendous impact on business and market as business growth.",
+      "It helps in developing business tactics.",
+      "Social media marketing helps a brand/company to build a strong online presence",
+      "by innovative social media marketing techniques and customer satisfaction.",
     br(),
     tags$h4(class = "insight",
             "Platform Effectiveness: Are They Really Effective?"),
