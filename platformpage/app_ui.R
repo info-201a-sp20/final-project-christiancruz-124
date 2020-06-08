@@ -36,6 +36,6 @@ ui_platform <- tabPanel(
     feature_input,
   ),
   mainPanel(
-    plotOutput(outputId = "plot")
+    plotlyOutput(outputId = "plot")
   )
 )

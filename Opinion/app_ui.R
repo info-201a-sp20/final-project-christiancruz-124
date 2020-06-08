@@ -86,7 +86,7 @@ sidebar_content <- sidebarPanel(
 main_content <- mainPanel(
   tags$p("Below is a graph that shows
       opinion of different groups towards social media marketing."),
-  plotOutput(outputId = "plot_histogram")
+  plotlyOutput(outputId = "plot_histogram")
 )
 
 race_panel <- tabPanel(
