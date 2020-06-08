@@ -1,5 +1,6 @@
 library(shiny)
 library(ggplot2)
+install.packages(ggmap)
 library(ggmap)
 library(dplyr)
 
