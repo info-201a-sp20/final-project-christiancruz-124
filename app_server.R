@@ -67,6 +67,7 @@ server <- function(input, output) {
     ) +
       geom_col(position = "dodge") +
       scale_fill_brewer(name = "Platforms", palette = "Set1") +
+      title("User Influence by Demographic") +
       xlab(input$feature) +
       ylab("Users Influenced") +
       theme(
@@ -102,6 +103,7 @@ server <- function(input, output) {
     ) +
       geom_col(position = "fill") +
       scale_fill_brewer(name = "Opinion", palette = "Set1") +
+      title("Opinion by Demographic") +
       xlab(input$select) +
       ylab("Count") +
       theme(
