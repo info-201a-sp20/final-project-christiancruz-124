@@ -2,6 +2,7 @@ library(shiny)
 library(ggplot2)
 library(ggmap)
 library(dplyr)
+library(plotly)
 
 source("maps/app_server.R")
 source("platformpage/app_ui.R")
@@ -40,7 +41,8 @@ server <- function(input, output) {
   })
 
   # col chart on platform influence by demographic
-  output$plot <- renderPlot({
+  output$plot <- renderPlotly({
+    plot.new()
     to_plot <- by_demo %>%
       filter(type == input$feature) %>%
       select(-type) %>%
@@ -73,10 +75,12 @@ server <- function(input, output) {
       theme(
         axis.text.x = element_text(angle = 45, hjust = 1)
       )
-    p
+    
+    p <- ggplotly(p)
   })
 
-  output$plot_histogram <- renderPlot({
+  output$plot_histogram <- renderPlotly({
+    plot.new()
     to_plot <- to_demo %>%
       filter(type == input$select) %>%
       select(-type) %>%
@@ -109,7 +113,8 @@ server <- function(input, output) {
       theme(
         axis.text.x = element_text(angle = 45, hjust = 1)
       )
-    p
+    
+    p <- ggplotly(p)
   })
   
   output$platforms_overall <- renderPlot({
