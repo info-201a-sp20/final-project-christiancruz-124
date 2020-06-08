@@ -1,0 +1,33 @@
+body {
+  background-color: #F2FBFF;
+}
+
+.navbar-default {
+  background-color: #CDE6FD;
+  color: black;
+  font-family: 'Alegreya';
+  font-size: 17px;
+}
+
+p {
+  font-family: 'Alegreya';
+  color: #000000;
+  font-size: 16px;
+}
+
+.header {
+  color:#85AFE1;
+  font-family: 'Alegreya';
+}
+.sub {
+   color:#97B9E1;
+   font-family: 'Alegreya';
+}
+
+#img { 
+  border-style: solid;
+  border-color: #748FAF;
+  border-width: 3px;
+}
+
+
