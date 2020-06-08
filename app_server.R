@@ -109,4 +109,29 @@ server <- function(input, output) {
       )
     p
   })
+  
+  output$platforms_overall <- renderPlot({
+    to_plot <- raw %>%
+      filter(Segment.Description == "Global results", )
+    
+    p <- ggplot(data = to_plot, aes(x = "", y = Count, fill = Answer)) +
+      geom_bar(width = 1, stat = "identity") +
+      geom_text(label = paste0(pull(to_plot, Percentage) * 100, "%"),
+                position = position_stack(vjust = 0.5)
+      ) +
+      coord_polar("y", start = 0) +
+      scale_fill_brewer(palette = "Set1") +
+      labs(
+        title = "Global results of platform use",
+        subtitle = raw$Question
+      ) +
+      theme(
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text = element_blank(),
+        axis.ticks = element_blank(),
+        panel.grid = element_blank()
+      )
+    p
+  })
 }

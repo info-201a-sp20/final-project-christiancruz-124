@@ -84,6 +84,17 @@ ui <- navbarPage(
       categories that also has a high relative count of answers in each
       demographic category, which means a large amount of people feel they
       haven't been influenced by social media marketing. This poses the
-      question of whether social media ads are effective at all.")
+      question of whether social media ads are effective at all."),
+    plotOutput("platforms_overall"),
+    tags$p("Something to consider is the objectivity of the data and thus the 
+           insights from the data. Becuase all of the data for this report is
+           survey based, the data is all user reported. This means that a 
+           survey taker may answer \"None\" when in reality, they have
+           purchased a product directly from a platform without knowing or 
+           may have unknowingly bought a product advertised to them while on a
+           certain platform. There is no way to accurately determine this
+           without better, more direct data, so further investigation with
+           better data is needed to fully determine the effectiveness of social
+           media marketing.")
   )
 )
