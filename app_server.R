@@ -3,6 +3,7 @@ library(ggplot2)
 install.packages(ggmap)
 library(ggmap)
 library(dplyr)
+library(plotly)
 
 source("maps/app_server.R")
 source("platformpage/app_ui.R")
@@ -41,7 +42,8 @@ server <- function(input, output) {
   })
 
   # col chart on platform influence by demographic
-  output$plot <- renderPlot({
+  output$plot <- renderPlotly({
+    plot.new()
     to_plot <- by_demo %>%
       filter(type == input$feature) %>%
       select(-type) %>%
@@ -68,15 +70,18 @@ server <- function(input, output) {
     ) +
       geom_col(position = "dodge") +
       scale_fill_brewer(name = "Platforms", palette = "Set1") +
+      title("User Influence by Demographic") +
       xlab(input$feature) +
       ylab("Users Influenced") +
       theme(
         axis.text.x = element_text(angle = 45, hjust = 1)
       )
-    p
+    
+    p <- ggplotly(p)
   })
 
-  output$plot_histogram <- renderPlot({
+  output$plot_histogram <- renderPlotly({
+    plot.new()
     to_plot <- to_demo %>%
       filter(type == input$select) %>%
       select(-type) %>%
@@ -103,12 +108,14 @@ server <- function(input, output) {
     ) +
       geom_col(position = "fill") +
       scale_fill_brewer(name = "Opinion", palette = "Set1") +
+      title("Opinion by Demographic") +
       xlab(input$select) +
       ylab("Count") +
       theme(
         axis.text.x = element_text(angle = 45, hjust = 1)
       )
-    p
+    
+    p <- ggplotly(p)
   })
   
   output$platforms_overall <- renderPlot({
