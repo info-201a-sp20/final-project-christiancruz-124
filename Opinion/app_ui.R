@@ -75,11 +75,20 @@ to_demo <- to_demo %>%
 
 choices <- c("Race", "Gender", "School Level", "GPA", "Major", "Economic Class")
 sidebar_content <- sidebarPanel(
+  tags$h3(class= "sub",
+          "Purpose"),
+  hr(),
+  tags$p("The bar graph aims to shown the opinion of different concern groups
+           towards social media marketing. With the fill of type of opinions,
+           every type of survey taker within each group shows the general ratio of opinions.
+           This information can then lead to further analysis such as how ages, gender and income class
+           would effect general attitudes toward social media marketing."),
+  hr(),
   selectInput(
     inputId = "select",
     label = "Choose concerned group",
     choice = choices,
-    selected = "Gender"
+    selected = "Race"
   )
 )
 
@@ -96,14 +105,5 @@ race_panel <- tabPanel(
   sidebarLayout(
     sidebar_content,
     main_content,
-    tags$h3(class= "sub",
-            "Purpose"),
-    hr(),
-    tags$p("The bar graph aims to shown the opinion of different concern groups
-           towards social media marketing. With the fill of type of opinions,
-           every type of survey taker within each group shows the general ratio of opinions.
-           This information can then lead to further analysis such as how ages, gender and income class
-           would effect general attitudes toward social media marketing."),
-    hr(),
   )
 )
