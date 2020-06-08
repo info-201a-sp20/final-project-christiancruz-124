@@ -91,7 +91,7 @@ main_content <- mainPanel(
 
 race_panel <- tabPanel(
   "Opinion Towards Social Media Marketing",
-  tags$h3(class = "header",
+  tags$h1(class = "header",
           "Opinion Towards Social Media Marketing"),
   sidebarLayout(
     sidebar_content,
