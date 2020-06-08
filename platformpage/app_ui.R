@@ -18,7 +18,7 @@ ui_platform <- tabPanel(
   tags$h1(class = "header",
           "Influence On Users By Platform"),
   sidebarPanel(
-    tags$h4(class= "sub",
+    tags$h3(class = "sub",
             "Purpose"),
     hr(),
     tags$p("The Whatsgoodly survey asks survey takers \"What social platform has

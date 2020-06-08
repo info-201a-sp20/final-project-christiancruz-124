@@ -14,7 +14,7 @@ ui <- navbarPage(
             "Overview"),
     sidebarLayout(
       sidebarPanel(
-        tags$h4(class= "sub",
+        tags$h3(class= "sub",
                 "Purpose"),
         hr(),
         tags$p("In an effort to understand the effects social media has on users, we have
@@ -26,12 +26,15 @@ ui <- navbarPage(
         most effective, and finally to use demographical knowledge in conjunction with
         marketing data to evaluate their effectiveness in certain groups."),
         br(),
-        tags$h4(class= "sub",
+        tags$h3(class= "sub",
                 "Data Sources"),
         hr(),
         tags$p("In this project we have successfully found data on",
-          a("data world.", href= "https://data.world/"), "The datasets we chose from data.world was
-        collected via survey on an app known as Whatsgoodly.")),
+          a("data world.", href= "https://data.world/"), "All of the datasets we chose from data.world was
+        collected via survey on an app known as Whatsgoodly. The datasets provided information about 
+          demographics, location, and asked questions that showed opinions of different demographics about
+          social media marketing as well as questions realting to the effectiveness of different 
+          social media platforms.")),
 
       mainPanel(
       tags$img(id = "img", "", src = "https://images.pexels.com/photos/927629/pexels-photo-927629.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
@@ -54,9 +57,9 @@ ui <- navbarPage(
     "Conclusions",
     tags$h1(class = "header",
             "Conclusions"),
-    tags$h4("Based on the visualizations we had the following insights:"),
     br(),
-    tags$h5("Mapping Opinions: General Trends Show Negative Responses Throughout"),
+    tags$h4(class = "insight",
+            "Mapping Opinions: General Trends Show Negative Responses Throughout"),
     tags$p("When comparing attitudes toward marketing in different locations,",
       "the location did not affect attitude. However, we see a general trend",
       "of dislike across the country followed by neutrality in second, and finally
@@ -66,14 +69,16 @@ ui <- navbarPage(
       and this leads us the question their objectivity in the influence that social media
       holds in their own lives."),
     br(),
-    tags$h5("Demographics and Opinion: General Consensus"),
+    tags$h4(class = "insight",
+            "Demographics and Opinion: General Consensus"),
     tags$p("Based on the summary of opinion of people who took the survey,",br(),
       "It could be found that among different group of people,opinions are varied.",br(),
       "The general trend, however, shows a negative attitute towards social media marketing",br(),
       "Whether social media marketing is effective cannot be told from the summary since the inluence",br(),
       "of the advertisements may be unrealized."),
     br(),
-    tags$h5("Platform Effectiveness: Are They Really Effective?"),
+    tags$h4(class = "insight",
+            "Platform Effectiveness: Are They Really Effective?"),
     tags$p("A quick look at each of the demographic categories on platform influence
       will easily show that there are a couple platforms that dominate the ad
       game. Both Facebook and instagram show clear signs as far as numbers that

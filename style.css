@@ -5,20 +5,23 @@ body {
 .navbar-default {
   background-color: #CDE6FD;
   color: black;
-  font-family:'Century Gothic', sans-serif;
-  font-size: 15px;
+  font-family: 'Alegreya';
+  font-size: 17px;
 }
 
 p {
-  font-family: 'Century Gothic', sans-serif;
+  font-family: 'Alegreya';
   color: #000000;
+  font-size: 16px;
 }
 
 .header {
   color:#85AFE1;
+  font-family: 'Alegreya';
 }
 .sub {
    color:#97B9E1;
+   font-family: 'Alegreya';
 }
 
 #img { 
@@ -26,4 +29,5 @@ p {
   border-color: #748FAF;
   border-width: 3px;
 }
+
 

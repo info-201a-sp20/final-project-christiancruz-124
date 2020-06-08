@@ -20,7 +20,7 @@ map_page <- tabPanel(
           "Regional Opinions of Social Media Marketing in the US"),
   sidebarLayout(
     sidebarPanel(
-      tags$h4(class= "sub",
+      tags$h3(class= "sub",
               "Purpose"),
       hr(),
       tags$p("The map on the right aims to depict opinions of social media users
@@ -31,7 +31,7 @@ map_page <- tabPanel(
         general attitudes toward social media marketing."),
       
       hr(),
-      radioButtons(inputId = "view", label = "Select an Opinion",
+      radioButtons(inputId = "view", label = tags$h5("Select an Opinion"),
                    choices = opinions, selected = "Positive")
     ),
     mainPanel(
